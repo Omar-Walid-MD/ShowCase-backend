@@ -1,6 +1,17 @@
 import path from "node:path";
 import * as dotenv from "dotenv";
-dotenv.config({path:path.join("./src/config/.env.dev")});
+import * as fs from "fs";
+
+// const envFile =
+//     process.env.NODE_ENV === "production"
+//         ? "./src/config/env.prod"
+//         : "./src/config/env.dev";
+
+// if (fs.existsSync(envFile)) {
+//     dotenv.config({ path: envFile });
+// }
+dotenv.config();
+
 
 import express from "express";
 import cors from "cors";
