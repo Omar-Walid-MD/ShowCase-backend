@@ -11,11 +11,16 @@ let upload;
 
 import dns from "node:dns/promises";
 console.log(await dns.getServers());
-dns.setServers(["1.1.1.1"]);
+
+
 
 
 async function connectDB()
 {
+    if(process.env.MODE === "DEV")
+    {
+        dns.setServers(["1.1.1.1"]);
+    }
     try {
         console.log(process.env.DB_URI)
         const result = await mongoose.connect(process.env.DB_URI);
