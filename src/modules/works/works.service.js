@@ -34,7 +34,7 @@ export const addWork = asyncHandler(async (req, res, next) => {
 
     const portfolio = await DBService.findOne({
         model: PortfolioModel,
-        filter: {userId: req.user._id}
+        filter: {_id: portfolioId}
     });
 
     if(!portfolio)
@@ -46,11 +46,11 @@ export const addWork = asyncHandler(async (req, res, next) => {
 
     const updatedPortfolio = await DBService.updateOne({
         model: PortfolioModel,
-        filter: {userId: req.user._id},
+        filter: {_id: portfolioId},
         update: portfolio
     });
 
-    return successResponse({ res, data: { work } });
+    return successResponse({ res, status:201, data: { work } });
 });
 
 export const deleteWork = asyncHandler(async (req, res, next) => {
@@ -73,7 +73,7 @@ export const deleteWork = asyncHandler(async (req, res, next) => {
 
     const portfolio = await DBService.findOne({
         model: PortfolioModel,
-        filter: {userId: req.user._id}
+        filter: {_id: work.portfolioId}
     });
 
     if(!portfolio)
@@ -85,7 +85,7 @@ export const deleteWork = asyncHandler(async (req, res, next) => {
 
     const updatedPortfolio = await DBService.updateOne({
         model: PortfolioModel,
-        filter: {userId: req.user._id},
+        filter: {_id: portfolio._id},
         update: portfolio
     });
 

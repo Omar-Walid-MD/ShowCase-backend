@@ -53,7 +53,7 @@ export const getPortfolio = asyncHandler(async (req, res, next)=>{
         return next(new Error("Portfolio not found",{cause:404}));
     }
 
-    return successResponse({res,status:201,data:{portfolio}});
+    return successResponse({res,status:200,data:{portfolio}});
 
 });
 
@@ -74,7 +74,7 @@ export const getUserPortfolios = asyncHandler(async (req, res, next)=>{
         return next(new Error("Portfolio not found",{cause:404}));
     }
 
-    return successResponse({res,status:201,data:{portfolios}});
+    return successResponse({res,status:200,data:{portfolios}});
 
 });
 
@@ -112,7 +112,7 @@ export const updatePortfolioInfo = asyncHandler(async (req, res, next)=>{
     updatedPortfolio.works = portfolio.works;
     updatedPortfolio.phone = phone;
 
-    return successResponse({res,status:201,data:{portfolio:updatedPortfolio}});
+    return successResponse({res,status:200,data:{portfolio:updatedPortfolio}});
 
 });
 
@@ -155,7 +155,7 @@ export const updatePortfolioResume = asyncHandler(async (req, res, next)=>{
         });
     }
 
-    return successResponse({res,status:201,data:{portfolio:updatedPortfolio}});
+    return successResponse({res,status:200,data:{portfolio:updatedPortfolio}});
 
 });
 
@@ -201,7 +201,7 @@ export const updatePortfolioThumbnail = asyncHandler(async (req, res, next)=>{
         });
     }
 
-    return successResponse({res,status:201,data:{portfolio:updatedPortfolio}});
+    return successResponse({res,status:200,data:{portfolio:updatedPortfolio}});
 
 });
 
